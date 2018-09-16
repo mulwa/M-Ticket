@@ -288,11 +288,11 @@ THE SOFTWARE.
 MIT
 MIT
 
-ng4-loading-spinner@1.2.3
+angular2-flash-messages@3.0.1
 MIT
 MIT
 
-angular2-flash-messages@3.0.1
+ng4-loading-spinner@1.2.3
 MIT
 MIT
 

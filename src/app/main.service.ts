@@ -17,7 +17,24 @@ export class MainService {
     console.log('service constuctor called')
   }
   login(user:userAuth){
-    return this.http.post(baseUrl,user);
+    return this.http.post<responseI>(baseUrl,user);
+  }
+  makeloggedin(hash:string){
+    localStorage.setItem("login",hash);
+  }
+  getLoginStatus(){
+    return  localStorage.getItem("login");
+  }
+  logOut(){
+    localStorage.removeItem("login");   
+  }
+  isAuthenticated():boolean{
+    let status = this.getLoginStatus();
+    console.log(status);  
+    if(status == null){
+      return false;
+    }
+    return true;       
   }
   getTravelDates(){
     const cityParams = {

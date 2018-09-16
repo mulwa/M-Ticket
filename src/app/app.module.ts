@@ -20,6 +20,7 @@ import {HttpClientModule } from '@angular/common/http';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 
 
@@ -49,7 +50,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     FlashMessagesModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [MainService],
+  providers: [MainService,AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

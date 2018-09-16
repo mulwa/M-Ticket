@@ -1,31 +1,33 @@
-	<!-- LOGIN SECTION -->  
+  <!-- LOGIN SECTION -->  
     <div class="log-in-pop">
       <div class="log-in-pop-left">
         <h1>Welcome</h1>
         <p>Don't have an account? Create your account. It's take less then a minutes</p>
         <h4>Login with social media</h4>
         <ul>
-          <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+          <li><a><i class="fa fa-facebook"></i> Facebook</a>
           </li>
-          <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+          <li><a><i class="fa fa-google"></i> Google+</a>
           </li>
-          <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+          <li><a><i class="fa fa-twitter"></i> Twitter</a>
           </li>
         </ul>
       </div>
-      <div class="log-in-pop-right">        
+      <div class="log-in-pop-right"> 
+          <flash-messages></flash-messages>
+        <app-loading-spinner *ngIf="showStatus"></app-loading-spinner>                 
         <h4>Login</h4>
         <p>Don't have an account? Create your account. It's take less then a minutes</p>
         <form class="s12" [formGroup]="signInForm">
           <div>
             <div class="input-field s12">
-              <input formControlName="clerk_username" type="number"  class="validate">
+              <input formControlName="clerk_username" type="text"  class="validate" required>
               <label>Phone Number</label>
             </div>
           </div>
           <div>
             <div class="input-field s12">
-              <input formControlName="clerk_password" type="password" class="validate">
+              <input formControlName="clerk_password" type="password" class="validate" required>
               <label>Password</label>
             </div>
           </div>
@@ -39,7 +41,7 @@
           </div>
           <div>
             <div class="input-field s4">
-              <input type="submit" value="Login" class="waves-effect waves-light log-in-btn" (click)="doLogin()">
+              <input type="submit" [disabled]="!signInForm.valid" value="Login" class="waves-effect waves-light log-in-btn" (click)="doLogin()">
               
             </div>
           </div>
