@@ -1,0 +1,105 @@
+<body data-ng-app="">
+	<!--MOBILE MENU-->
+  <app-side-menu></app-side-menu>
+	<!--HEADER SECTION-->
+	<section>
+		<!--TOP SECTION-->
+		<div class="menu-section">
+			<div class="container">
+				<div class="row">
+					<div class="top-bar">
+						<ul>
+							<li><a class='dropdown-button' href='#' data-activates='dropdown1'> My Account <i class="fa fa-angle-down"></i></a>
+							</li>
+							<li><a href="#">Our Vehicles</a>
+							</li>
+							<li><a href="#">About Us</a>
+							</li>														
+							<li><a href="#">0707200314</a>
+							</li>
+						</ul>
+					</div>
+					<div class="all-drop-down">
+						<!-- Dropdown Structure -->
+						<ul id='dropdown1' class='dropdown-content drop-con-man'>												
+						
+							<li>
+								<a routerLink="/signup"><img src="/assets/images/icon/5.png" alt=""> Register</a>
+							</li>
+							<li>
+								<a routerLink="/login"><img src="/assets/images/icon/5.png" alt=""> Log In</a>
+							</li>							
+						</ul>											
+						<!-- ROOM Dropdown Structure -->
+						<ul id='drop-room' class='dropdown-content drop-con-man'>
+							<li><a href="#">Standards</a>
+							</li>
+							<li><a href="#">Economic</a>
+							</li>
+							<li><a href="#">Silver</a>
+							</li>							
+						</ul>						
+					</div>
+				</div>
+				<div class="row">
+					<div class="logo">
+						<a href="#"><img src="/assets/images/logo.png" alt="" />
+						</a>
+					</div>
+					<div class="menu-bar">
+						<ul>
+							<li><a routerLink="/home">Home</a></li>															
+							<li><a href="#" class='dropdown-button' data-activates='drop-room'>Tickets Types <i class="fa fa-angle-down"></i></a>
+							</li>
+							<li><a href="#">Services</a>
+							</li>														
+							<li><a class='dropdown-button' href='#' data-activates='dropdown1'> My Account <i class="fa fa-angle-down"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--TOP SECTION-->
+		<!--TOP SECTION-->
+		<div class="inn-body-section inn-booking">
+			<flash-messages></flash-messages>			
+			<router-outlet></router-outlet>
+		</div>
+		<!--TOP SECTION-->
+		<!--TOP SECTION-->
+		<div class="hom-footer-section">
+			<div class="container">
+				<div class="row">
+					<div class="foot-com foot-1">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div class="foot-com foot-2">
+						<h5>Phone: (+254) 0707200314</h5> </div>
+					<div class="foot-com foot-3">
+						<a [routerLink]="['/findbus']" routerLinkActive="router-link-active"  class="waves-effect waves-light">Reservation Ticket</a> </div>
+					<div class="foot-com foot-4">
+						<a href="#"><img src="/assets/images/card.png" alt="noavailable" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--END HEADER SECTION-->
+  <!-- FOOTER HERE -->  
+  <app-footer></app-footer>
+  <!-- end footer -->
+	<section class="copy">
+		<div class="container">
+			<p>copyrights © 2018 mulwatch@gmail.com. &nbsp;&nbsp;All rights reserved. </p>
+		</div>
+  </section>  	
+</body>

@@ -1,0 +1,77 @@
+<div class="container">
+  <ng4-loading-spinner> </ng4-loading-spinner>
+  <div class="row">
+    <!--TYPOGRAPHY SECTION-->
+    <div class="row">
+        <app-loading-spinner *ngIf="loadingLocations"></app-loading-spinner>
+    </div>     
+    <div class="col-md-12" *ngIf="loadingLocations ==false">              
+      <div class="book-form inn-com-form">                
+        <form class="col-md-12"  [formGroup]="travelForm" >  <!--change to  form-->
+          <div class="row">               
+            <div class="form-group col-md-4">
+              <label for="inputState">From</label>
+              <select id="inputState" class="form-control" formControlName="from_city">
+                <option selected>Choose Origin</option>
+                <option *ngFor="let location of city" [value]="location.id">{{location.name}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">To</label>
+              <select id="inputState" class="form-control" formControlName="to_city">
+                <option selected >Choose Destination...</option>
+                <option *ngFor="let location of city" [value]="location.id" >{{location.name}}</option>
+              </select>
+            </div> 
+            <div class="form-group col-md-4">
+              <label for="inputState">Travel Date </label>
+              <select id="inputState" class="form-control" formControlName="travel_date">
+                <option selected >Select Traveling Date...</option>
+                <option *ngFor="let tvdates of travelingDates">{{tvdates.name}}</option>
+              </select>
+            </div>           
+                       
+          </div>          
+          <div class="row">
+              <div class="input-field col s12 m12 l12">
+                  <input type="submit" value="Search" class="form-btn"  (click)="searchVehicle()">
+              </div>                     
+          </div> 
+          <app-loading-spinner *ngIf="searchingVehcles"></app-loading-spinner>           
+        </form>  <!--change to  form-->
+      </div>
+    </div>
+    <!--END TYPOGRAPHY SECTION-->
+  </div>   
+  <!-- end-first-row-search -->
+  <div class="row" *ngIf="no_vehicles_message">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-content">
+          <h4>There Are No Vehicle Available</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="availableVehicles?.length > 1">
+      <!--display buses-->    
+      <div class="col-md-12 buses-display">         
+        <div class="header">
+            <h4 *ngIf="from_name">Available  Buses From {{from_name}} to {{to_name}}</h4>  
+        </div>
+                  
+        <div class="card" *ngFor="let item of availableVehicles" >
+          <div class="card-content">              
+              <div class="res-menu"> <img src="/assets/images/menu/1.jpg" alt="">
+                <h3>{{item.name}}<span>Seater  {{item.seater}}</span></h3>                
+              </div>
+              <input type="button" value="Book" class="waves-effect waves-light log-in-btn" (click)="loadMore(item)">
+
+          </div>
+        </div>
+        
+      </div>
+      <!--END TYPOGRAPHY SECTION-->
+    </div> 
+
+</div>

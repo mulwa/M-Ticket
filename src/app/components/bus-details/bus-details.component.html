@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <!--TYPOGRAPHY SECTION-->
+    <div class="col-md-6">
+      <div class="card">        
+        <div class="card-content">
+          <div class="card-title">
+              <h4>Booking{{selected_vehicle_name}}</h4>
+          </div>          
+          <div class="form-group">              
+              <select [(ngModel)]="selected_seat" class="form-control">
+                <option>Select Seat No...</option>
+                <option *ngFor="let seat of seatsArray" [ngValue]="seat" >{{seat}}</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <input type="submit" value="Book Seat" class="form-btn"  (click)="checkOut(selected)">
+          </div>               
+          
+        </div>    
+        </div>
+      </div>
+    <!--END FIRST COL SECTION-->
+    <div class="col-md-6" *ngIf="showCheckOut">
+            <flash-messages></flash-messages>
+        <div class="card"> 
+            <app-loading-spinner *ngIf="showReservationProcess"></app-loading-spinner>         
+          <div class="card-content">
+              <div class="card-title">
+                  <h4>Please Fill To Complete Booking</h4>
+                </div>
+            <form [formGroup]="checkOutForm">
+              <div class="form-group">
+                  <input  type="text" class="form-control" formControlName="passenger_name" placeholder="Passager Name">                    
+              </div>
+              <div class="form-group">
+                  <input  type="number" class="form-control" formControlName="phone_number" placeholder="Phone Number">                    
+              </div>
+              <div class="form-group">
+                  <input  type="text" class="form-control" formControlName="id_number" placeholder="Id Number">                    
+              </div>
+              <div class="form-group">
+                  <input  type="email" class="form-control" formControlName="email_address" placeholder="Email Address">                    
+              </div>
+              <div class="form-group">
+                    <input  type="number" hidden class="form-control" formControlName="amount_charged">                    
+                </div>
+              <div class="form-group">
+                  <select class="form-control" formControlName="payment_method">
+                      <option selected >Select Payment Option...</option>
+                      <option value="3">Mpesa</option>
+                      <option value="2">Credit Card</option>
+                  </select>                                    
+              </div>
+              <div class="form-group">
+                  <button [disabled]="!checkOutForm.valid" (click)="onCheckOut()" class="card-link btn btn-primary">Check Out</button>
+               </div>              
+            </form>
+          </div>
+            
+        </div>
+    </div>
+  </div>
+<!-- CHECKOUT FORM -->
+
+
+</div>
